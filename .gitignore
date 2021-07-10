@@ -1,5 +1,5 @@
 .*
-*/_*
+nbs/_*
 *.bak
 .gitattributes
 .lsat_checked
