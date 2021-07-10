@@ -1,2 +1,9 @@
-# audioengine
-Using ML to classify audio segments
+# Audioengine
+
+
+
+## Install
+pip install audioengine
+
+# How to use
+Fill in here
