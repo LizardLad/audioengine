@@ -1,8 +1,9 @@
 tensorflow-gpu==2.1.0
+tensorflow_io
 matplotlib
 Pillow
 numpy
 schema
 scipy
 pandas
-
+ffmpeg-python

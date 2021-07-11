@@ -98,3 +98,9 @@ tools/fastai
 chechlink/cookies.txt
 
 .gitconfig
+
+timesheet
+logs/
+logs/*
+config/
+config/*
