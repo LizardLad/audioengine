@@ -2,7 +2,8 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"get_num_gpus": "00_utils.gpu.ipynb",
+index = {"list_all_gpus": "00_utils.gpu.ipynb",
+         "get_num_gpus": "00_utils.gpu.ipynb",
          "set_gpu_memory_limit": "00_utils.gpu.ipynb",
          "set_gpu_list_memory_limit": "00_utils.gpu.ipynb",
          "recursive_get_size": "00_utils.misc.ipynb",
