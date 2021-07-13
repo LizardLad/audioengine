@@ -13,7 +13,7 @@ from typing import Any, Union
 
 # Cell
 
-def recursive_get_size(obj: Any, seen: Union[None, set]=None) -> int:
+def recursive_get_size(obj: Any, seen: Union[None, set] = None) -> int:
     '''
     Get the size of an object in memory recursivly
 
@@ -39,7 +39,7 @@ def recursive_get_size(obj: Any, seen: Union[None, set]=None) -> int:
 
 # Cell
 
-def log_init(log_filepath: str='', log_level: str='', clear_existing_log: bool=False):
+def log_init(log_filepath: str = '', log_level: str = '', clear_existing_log: bool = False):
     '''
     Init the logging module and set up where to log to. When no kwargs are passed the function will check the
     environment variable AUDIOENGINE_CONF_JSON for a path to a file to log to. If it doesn't exist then the default
@@ -113,7 +113,7 @@ def log_init(log_filepath: str='', log_level: str='', clear_existing_log: bool=F
     print('[INFO] Logging now set to {} with level {}'.format(log_location, log_level.upper()))
 
 
-def log_critical(message: str, exc_info: bool=False):
+def log_critical(message: str, exc_info: bool = False):
     '''
     Log a critical event to the current log and optionally include a traceback
 
@@ -128,7 +128,7 @@ def log_critical(message: str, exc_info: bool=False):
     logging.critical("{}: {} in {}:{}".format(func.co_filename, func.co_name, func.co_firstlineno, message),
                      exc_info=exc_info)
 
-def log_error(message: str, exc_info: bool=False):
+def log_error(message: str, exc_info: bool = False):
     '''
     Log a error event to the current log and optionally include a traceback
 

@@ -6,6 +6,8 @@ index = {"list_all_gpus": "00_utils.gpu.ipynb",
          "get_num_gpus": "00_utils.gpu.ipynb",
          "set_gpu_memory_limit": "00_utils.gpu.ipynb",
          "set_gpu_list_memory_limit": "00_utils.gpu.ipynb",
+         "read_tsv": "00_utils.imports.common_voice.ipynb",
+         "delete_pandas_columns": "00_utils.imports.common_voice.ipynb",
          "recursive_get_size": "00_utils.misc.ipynb",
          "log_init": "00_utils.misc.ipynb",
          "log_critical": "00_utils.misc.ipynb",
@@ -15,14 +17,17 @@ index = {"list_all_gpus": "00_utils.gpu.ipynb",
          "log_debug": "00_utils.misc.ipynb",
          "verify_audioengine_dataset": "00_utils.schema.ipynb",
          "audioengine_dataset_schema": "00_utils.schema.ipynb",
-         "read_tsv": "utils.imports.common_voice.ipynb",
-         "delete_pandas_columns": "utils.imports.common_voice.ipynb"}
+         "verify_audioengine_internal_audio_representation_schema": "00_utils.schema.ipynb",
+         "audioengine_internal_audio_representation_schema": "00_utils.schema.ipynb",
+         "SimpleFeedForwardNetwork5": "10_models.ipynb",
+         "Simple1DConvNet": "10_models.ipynb"}
 
 modules = ["utils/gpu.py",
+           "utils/imports/common_voice.py",
            "utils/misc.py",
            "utils/schema.py",
-           "audio_classification.py",
-           "utils/imports/common_voice.py"]
+           "models.py",
+           "audio_classification.py"]
 
 doc_url = "https://LizardLad.github.io/audioengine/"
 
