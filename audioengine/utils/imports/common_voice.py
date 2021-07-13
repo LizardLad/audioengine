@@ -3,26 +3,35 @@
 __all__ = ['read_tsv', 'delete_pandas_columns']
 
 # Cell
+import os, sys
+import shutil
+import multiprocessing
+import math
 
 import pandas as pd
 import tensorflow as tf
 import tensorflow_io as tfio
 
+import ffmpeg
+import json
+
 from typing import TextIO
 
 import audioengine
 from ..schema import verify_audioengine_dataset
+from ..misc import (log_init, log_error, log_info, log_debug,
+                                    change_file_extension, get_json_file_integrity)
 
 # Cell
 
-def read_tsv(tsv_filepointer: TextIO):
+def read_tsv(tsv_filepointer: TextIO) -> pd.DataFrame:
     """The input filepointer should already be open with no lines read"""
     tsv_data_df = pd.read_csv(tsv_filepointer, sep = '\t')
     return tsv_data_df
 
 # Cell
 
-def delete_pandas_columns(df: pd.DataFrame, column_list: list):
+def delete_pandas_columns(df: pd.DataFrame, column_list: list) -> pd.DataFrame:
     for column in column_list:
         del df[column]
     return df

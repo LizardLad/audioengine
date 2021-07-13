@@ -9,9 +9,20 @@ import inspect
 import logging
 import json
 
+from typing import Any, Union
+
 # Cell
 
-def recursive_get_size(obj, seen=None):
+def recursive_get_size(obj: Any, seen: Union[None, set]=None) -> int:
+    '''
+    Get the size of an object in memory recursivly
+
+    Inputs:
+        param: obj |Any| (Any python object)
+        kwarg: seen |set| (A set of ids of python objects already seen by the function. This should not be done manually)
+    Outputs:
+        return: size |int| (The size of the object in memory measured in bytes)
+    '''
     size = sys.getsizeof(obj)
     seen = (set() if seen is None else seen)
     if(id(obj) in seen): return 0 #In the case of a self reference
@@ -29,6 +40,20 @@ def recursive_get_size(obj, seen=None):
 # Cell
 
 def log_init(log_filepath: str='', log_level: str='', clear_existing_log: bool=False):
+    '''
+    Init the logging module and set up where to log to. When no kwargs are passed the function will check the
+    environment variable AUDIOENGINE_CONF_JSON for a path to a file to log to. If it doesn't exist then the default
+    will be grabbed from /project/Development/ML/audio/config/audioengine.conf. If it isn't in there then it will
+    log to console. It also sets what level is written to the logs. The options are
+    [debug, info, warning, error, critical] this argument is case insensitive.
+
+    Inputs:
+        kwarg: log_filepath |str| (Optional filepath to log to)
+        kwarg: log_level |str| (Optional level of log sensitivity)
+        kwarg: clear_existing_log |bool| (Optional overwrite existing file or just append. True will overwrite.)
+    Outputs:
+        If the filepath to the log file doesn't exist it will be created and opened
+    '''
     config_filepath = os.environ.get('AUDIOENGINE_CONF_JSON', '/project/Development/ML/audio/config/audioengine.conf')
     if(os.path.isfile(config_filepath)):
         config_fp = open(config_filepath, 'r')
@@ -88,34 +113,71 @@ def log_init(log_filepath: str='', log_level: str='', clear_existing_log: bool=F
     print('[INFO] Logging now set to {} with level {}'.format(log_location, log_level.upper()))
 
 
-def log_critical(message, exc_info=False):
-    "Automatically log the current function details."
+def log_critical(message: str, exc_info: bool=False):
+    '''
+    Log a critical event to the current log and optionally include a traceback
+
+    Inputs:
+        param: message |str| (The message to print to the log)
+        kwarg: exc_info |bool| (Include the traceback. False won't include the traceback and True will.)
+    Outputs:
+        Prints message and a little bit of context info to the log
+    '''
     func = inspect.currentframe().f_back.f_code
     # Dump the message + the name of this function to the log.
     logging.critical("{}: {} in {}:{}".format(func.co_filename, func.co_name, func.co_firstlineno, message),
                      exc_info=exc_info)
 
-def log_error(message, exc_info=False):
-    "Automatically log the current function details."
+def log_error(message: str, exc_info: bool=False):
+    '''
+    Log a error event to the current log and optionally include a traceback
+
+    Inputs:
+        param: message |str| (The message to print to the log)
+        kwarg: exc_info |bool| (Include the traceback. False won't include the traceback and True will.)
+    Outputs:
+        Prints message and a little bit of context info to the log
+    '''
     func = inspect.currentframe().f_back.f_code
     # Dump the message + the name of this function to the log.
     logging.error("{}: {} in {}:{}".format(func.co_filename, func.co_name, func.co_firstlineno, message),
                   exc_info=exc_info)
 
-def log_warning(message):
-    "Automatically log the current function details."
+def log_warning(message: str):
+    '''
+    Log a warning event to the current log and optionally include a traceback
+
+    Inputs:
+        param: message |str| (The message to print to the log)
+    Outputs:
+        Prints message and a little bit of context info to the log
+    '''
     func = inspect.currentframe().f_back.f_code
     # Dump the message + the name of this function to the log.
     logging.warning("{}: {} in {}:{}".format(func.co_filename, func.co_name, func.co_firstlineno, message))
 
-def log_info(message):
-    "Automatically log the current function details."
+def log_info(message: str):
+    '''
+    Log a info event to the current log and optionally include a traceback
+
+    Inputs:
+        param: message |str| (The message to print to the log)
+    Outputs:
+        Prints message and a little bit of context info to the log
+    '''
     func = inspect.currentframe().f_back.f_code
     # Dump the message + the name of this function to the log.
     logging.info("{}: {} in {}:{}".format(func.co_filename, func.co_name, func.co_firstlineno, message))
 
-def log_debug(message):
-    "Automatically log the current function details."
+def log_debug(message: str):
+    '''
+    Log a debug event to the current log and optionally include a traceback
+
+    Inputs:
+        param: message |str| (The message to print to the log)
+    Outputs:
+        Prints message and a little bit of context info to the log
+    '''
     func = inspect.currentframe().f_back.f_code
     # Dump the message + the name of this function to the log.
     logging.debug("{}: {} in {}:{}".format(func.co_filename, func.co_name, func.co_firstlineno, message))
