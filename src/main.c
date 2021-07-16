@@ -14,7 +14,7 @@ struct wav_header_struct
 	uint16_t channels;
 	uint32_t sample_rate;
 	uint32_t bytes_rate;
-	uint32_t block_align;
+	uint16_t block_align;
 	uint16_t bits_per_sample;
 	char data_chunk_header[4];
 	uint32_t data_size;
@@ -38,5 +38,7 @@ int main(int argc, char **argv)
 	printf("Data chunk header: %c%c%c%c\n", header->data_chunk_header[0],
 		       	header->data_chunk_header[1], header->data_chunk_header[2],
 		       	header->data_chunk_header[3]);
+	printf("Bytes per sample: %d\n", header->bits_per_sample / 8);
+	printf("Audio Format idx: %d\n", header->format_type);
 	return 0;
 }
