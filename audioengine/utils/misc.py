@@ -10,6 +10,8 @@ import inspect
 import logging
 import json
 
+import tensorflow as tf
+
 from typing import Any, Union
 
 # Cell
