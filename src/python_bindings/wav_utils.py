@@ -1,6 +1,6 @@
 import ctypes
 
-libwavutils_path = '/home/oliver/Development/ML/audio/build/libwavutil.so'
+libwavutils_path = '/project/Development/ML/audio/audioengine/clib/libwavutil.so'
 libwavutils = ctypes.CDLL(libwavutils_path)
 
 def get_max_samples_in_wav_from_directory(directory: str) -> int:

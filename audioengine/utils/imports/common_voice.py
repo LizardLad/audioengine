@@ -10,7 +10,6 @@ import math
 
 import pandas as pd
 import tensorflow as tf
-import tensorflow_io as tfio
 
 import ffmpeg
 import json
