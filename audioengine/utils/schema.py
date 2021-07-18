@@ -60,6 +60,7 @@ audioengine_internal_audio_representation_schema = schema.Schema(
                 'file_name': str,
                 'audio_data': Any,
                 'category_id': int,
+                'length': int
         }]
     )
 def verify_audioengine_internal_audio_representation_schema(data):
