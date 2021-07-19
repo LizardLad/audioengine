@@ -13,6 +13,7 @@ $(BUILD)%.o: $(C_SRC_DIR)%.c
 	gcc -c -Wall -Werror -fpic $< -o $@
 
 audioengine: $(SRC) $(COBJS)
+	mkdir -p $(CLIB_OUTPUT_DIR)
 	gcc -shared -o $(CLIB_OUTPUT_PATH) $(COBJS)
 	nbdev_clean_nbs --clear_all=True
 	nbdev_build_lib

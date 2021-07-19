@@ -236,6 +236,13 @@ def pad_up_to(t, max_in_dims, constant_values):
 # Cell
 
 def format_time_diff_for_print(time_diff: int) -> str:
+    jump = 1e+3
+    jump_counter = 0
+    metric_prefixes = ['nano', 'micro', 'milli', '', 'kilo', 'mega', 'giga', 'tera']
+    while int(time_diff / jump) > 0:
+        time_diff = time_diff / jump
+        jump_counter += 1
+    return str(time_diff) + ' {}seconds'.format(metric_prefixes[jump_counter])
 
 def timeit(method):
     def timed(*args, **kw):
