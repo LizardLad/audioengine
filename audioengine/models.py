@@ -47,20 +47,20 @@ class Simple1DConvNet(tf.keras.Model):
         self.max_pooling_2 = tf.keras.layers.MaxPooling1D(pool_size=(2,), name='max_pooling_2')
         self.dropout_2 = tf.keras.layers.Dropout(0.25, name='dropout_2')
 
-        self.conv_4 = tf.keras.layers.Conv1D(128, conv_width, padding='same', activation='relu', name='conv4')
-        self.batch_norm_4 = tf.keras.layers.BatchNormalization(axis=1, name='batch_norm_4')
-        self.conv_5 = tf.keras.layers.Conv1D(128, conv_width, padding='same', activation='relu', name='conv5')
-        self.batch_norm_5 = tf.keras.layers.BatchNormalization(axis=1, name='batch_norm_5')
-        self.max_pooling_3 = tf.keras.layers.MaxPooling1D(pool_size=(2,), name='max_pooling_3')
-        self.dropout_3 = tf.keras.layers.Dropout(0.25, name='dropout_3')
+        #self.conv_4 = tf.keras.layers.Conv1D(128, conv_width, padding='same', activation='relu', name='conv4')
+        #self.batch_norm_4 = tf.keras.layers.BatchNormalization(axis=1, name='batch_norm_4')
+        #self.conv_5 = tf.keras.layers.Conv1D(128, conv_width, padding='same', activation='relu', name='conv5')
+        #self.batch_norm_5 = tf.keras.layers.BatchNormalization(axis=1, name='batch_norm_5')
+        #self.max_pooling_3 = tf.keras.layers.MaxPooling1D(pool_size=(2,), name='max_pooling_3')
+        #self.dropout_3 = tf.keras.layers.Dropout(0.25, name='dropout_3')
 
         self.flatten_1 = tf.keras.layers.Flatten(name='flatten_1')
 
-        self.dense_1 = tf.keras.layers.Dense(2048, activation='relu', name='dense_1')
+        self.dense_1 = tf.keras.layers.Dense(2048/2, activation='relu', name='dense_1')
         self.batch_norm_6 = tf.keras.layers.BatchNormalization(name='batch_norm_6')
         self.dropout_4 = tf.keras.layers.Dropout(0.5, name='dropout_4')
 
-        self.dense_2 = tf.keras.layers.Dense(1024, activation='relu', name='dense_2')
+        self.dense_2 = tf.keras.layers.Dense(1024/2, activation='relu', name='dense_2')
         self.batch_norm_7 = tf.keras.layers.BatchNormalization(name='batch_norm_7')
         self.dropout_5 = tf.keras.layers.Dropout(0.5, name='dropout_5')
 
@@ -79,12 +79,12 @@ class Simple1DConvNet(tf.keras.Model):
         x = self.max_pooling_2(x)
         x = self.dropout_2(x)
 
-        x = self.conv_4(x)
-        x = self.batch_norm_4(x)
-        x = self.conv_5(x)
-        x = self.batch_norm_5(x)
-        x = self.max_pooling_3(x)
-        x = self.dropout_3(x)
+        #x = self.conv_4(x)
+        #x = self.batch_norm_4(x)
+        #x = self.conv_5(x)
+        #x = self.batch_norm_5(x)
+        #x = self.max_pooling_3(x)
+        #x = self.dropout_3(x)
 
         x = self.flatten_1(x)
 
