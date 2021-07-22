@@ -8,6 +8,7 @@ import json
 import math
 import tensorflow as tf
 import numpy as np
+import functools
 
 # Cell
 
