@@ -1,5 +1,6 @@
 .*
 nbs/_*
+models/
 *.bak
 .gitattributes
 .lsat_checked
